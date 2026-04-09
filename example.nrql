@@ -1,0 +1,3 @@
+SELECT *
+FROM Transaction
+SINCE 1 DAY AGO
