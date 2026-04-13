@@ -1,4 +1,4 @@
-.PHONY: help install build test clean package install-vscode uninstall dev lint
+.PHONY: help install build test clean package install-vscode uninstall dev lint publish login
 
 # Default target
 help:
@@ -13,6 +13,8 @@ help:
 	@echo "  make uninstall      - Uninstall from VSCode"
 	@echo "  make dev            - Build in watch mode"
 	@echo "  make clean          - Clean build artifacts"
+	@echo "  make login          - Login to VSCode Marketplace"
+	@echo "  make publish        - Publish extension to Marketplace"
 	@echo "  make all            - Install deps, test, build, and install in VSCode"
 
 # Install dependencies
@@ -38,7 +40,7 @@ lint:
 # Package the extension
 package: build
 	@echo "Packaging extension..."
-	npm run package
+	npx vsce package --readme-path MARKETPLACE.md
 
 # Install in VSCode
 install-vscode: package
@@ -66,6 +68,18 @@ clean:
 	@echo "Cleaning build artifacts..."
 	rm -rf dist coverage *.vsix
 	@echo "Clean complete"
+
+# Login to VSCode Marketplace
+login:
+	@echo "Login to VSCode Marketplace..."
+	@echo "You will be prompted for your Personal Access Token (PAT)"
+	npx vsce login
+
+# Publish to VSCode Marketplace
+publish: test lint build
+	@echo "Publishing extension to VSCode Marketplace..."
+	@echo "Make sure you've updated package.json with your publisher name!"
+	NODE_TLS_REJECT_UNAUTHORIZED=0 npx vsce publish --readme-path MARKETPLACE.md
 
 # Full workflow
 all: install test build install-vscode

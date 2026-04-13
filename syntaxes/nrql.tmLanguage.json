@@ -1,0 +1,132 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "New Relic Query Language",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#aggregators"
+    },
+    {
+      "include": "#timeunits"
+    },
+    {
+      "include": "#constants"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.nrql",
+          "match": "(?i)\\b(select|from|where|as|facet|limit|since|until|with|timezone|compare|timeseries|extrapolate|order|by|asc|desc|offset)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.comparison.nrql",
+          "match": "(?i)(=|!=|<|<=|>|>=)"
+        },
+        {
+          "name": "keyword.operator.logical.nrql",
+          "match": "(?i)\\b(and|or|not)\\b"
+        },
+        {
+          "name": "keyword.operator.null.nrql",
+          "match": "(?i)\\b(is\\s+null|is\\s+not\\s+null)\\b"
+        },
+        {
+          "name": "keyword.operator.membership.nrql",
+          "match": "(?i)\\b(in|not\\s+in)\\b"
+        },
+        {
+          "name": "keyword.operator.string.nrql",
+          "match": "(?i)\\b(like|not\\s+like)\\b"
+        },
+        {
+          "name": "keyword.operator.arithmetic.nrql",
+          "match": "(\\+|-|\\/|\\*)"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.nrql",
+          "match": "\\b\\d+\\.\\d+([eE][+-]?\\d+)?\\b"
+        },
+        {
+          "name": "constant.numeric.integer.nrql",
+          "match": "\\b\\d+([eE][+-]?\\d+)?\\b"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.nrql",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.nrql",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.nrql",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.nrql",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "aggregators": {
+      "patterns": [
+        {
+          "name": "entity.name.function.nrql",
+          "match": "(?i)\\b(apdex|average|count|eventType|filter|funnel|histogram|keyset|latest|max|min|percentage|percentile|rate|stddev|sum|uniqueCount|uniques)\\b"
+        }
+      ]
+    },
+    "timeunits": {
+      "patterns": [
+        {
+          "name": "constant.language.timeunit.nrql",
+          "match": "(?i)\\b(second|seconds|minute|minutes|hour|hours|day|days|week|weeks|month|months)\\b"
+        },
+        {
+          "name": "keyword.other.time.nrql",
+          "match": "(?i)\\b(ago|auto)\\b"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.nrql",
+          "match": "(?i)\\b(true|false|null)\\b"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.nrql"
+}
