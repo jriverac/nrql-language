@@ -60,11 +60,13 @@ Toggle comments on any line with `Ctrl+/` (or `Cmd+/` on macOS).
 Transform messy, single-line queries into readable, well-structured NRQL:
 
 **Before formatting:**
+
 ```nrql
 select count(*) from Transaction where duration > 1 facet name since 1 hour ago
 ```
 
 **After formatting:**
+
 ```nrql
 SELECT count(*)
 FROM Transaction
@@ -76,6 +78,7 @@ SINCE 1 HOUR AGO
 ## Supported Features
 
 ### Query Clauses
+
 - SELECT, FROM, WHERE
 - FACET, TIMESERIES, COMPARE
 - SINCE, UNTIL, WITH TIMEZONE
@@ -84,9 +87,11 @@ SINCE 1 HOUR AGO
 - EXTRAPOLATE
 
 ### Aggregator Functions
+
 apdex, average, count, eventType, filter, funnel, histogram, keyset, latest, max, min, percentage, percentile, rate, stddev, sum, uniqueCount, uniques
 
 ### Operators
+
 - **Comparison**: =, !=, <, <=, >, >=
 - **Logical**: AND, OR, NOT
 - **Null checks**: IS NULL, IS NOT NULL
@@ -95,6 +100,7 @@ apdex, average, count, eventType, filter, funnel, histogram, keyset, latest, max
 - **Arithmetic**: +, -, *, /
 
 ### Time Specifications
+
 Supports all NRQL time units: SECOND(S), MINUTE(S), HOUR(S), DAY(S), WEEK(S), MONTH(S), AGO, AUTO
 
 ## Installation
@@ -104,9 +110,3 @@ Install directly from the VS Code Marketplace or search for "NRQL Formatter" in 
 ## File Association
 
 The extension automatically activates for files with the `.nrql` extension. You can also manually set the language mode to "NRQL" for any file using the language selector in the bottom-right corner of VS Code.
-
-## License
-
-MIT
-
-Parts of this work are based on the [New Relic Query Language](https://github.com/joelalejandro/vscode-nrql-language) extension by Joel Alejandro Villarreal Bertoldi.
