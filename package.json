@@ -2,7 +2,7 @@
   "name": "nrql-formatter",
   "displayName": "NRQL Formatter",
   "description": "A formatter for New Relic Query Language (NRQL)",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "publisher": "JoseRiveraC",
   "engines": {
     "vscode": "^1.85.0"
@@ -19,12 +19,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/nrql-formatter"
+    "url": "https://github.com/jriverac/nrql-language"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/nrql-formatter/issues"
+    "url": "https://github.com/jriverac/nrql-language/issues"
   },
-  "homepage": "https://github.com/YOUR_USERNAME/nrql-formatter#readme",
+  "homepage": "https://github.com/jriverac/nrql-language#readme",
   "activationEvents": [
     "onLanguage:nrql"
   ],
