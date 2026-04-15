@@ -108,3 +108,5 @@ The extension automatically activates for files with the `.nrql` extension. You 
 ## License
 
 MIT
+
+Parts of this work are based on the [New Relic Query Language](https://github.com/joelalejandro/vscode-nrql-language) extension by Joel Alejandro Villarreal Bertoldi.
